@@ -1,1 +1,44 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<math.h>
 
+float pitagoras(int* vector);
+
+int main(){
+    int* vector;
+    float distance;
+
+    vector = (int*) malloc(sizeof(int)*3);
+
+    FILE* leer_vector = fopen("myfile", "r");
+    if(!leer_vector){
+        printf("no archivo :C");
+        exit(0);
+    }
+
+    while(!feof(leer_vector)){
+        fscanf(leer_vector, "%d,%d,%d", &vector[0], &vector[1], &vector[2]);
+        printf("%d, %d, %d", vector[0], vector[1], vector[2]);
+        distance = pitagoras(vector);
+        printf("\n Distancia: %f", distance);
+    }
+
+    
+
+    return 0;
+}
+
+float pitagoras(int* vector){
+    int i = 0;
+    float distance = 0;
+
+    while(vector[i] != ){
+        distance += pow(vector[i], 2);
+        i++;
+        printf("\n %f", distance);
+    }
+
+    printf("sal while");
+
+    return sqrt(distance);
+}
